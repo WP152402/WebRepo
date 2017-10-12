@@ -1,0 +1,18 @@
+#main{
+  margin-top : 100px;
+  overflow: hidden;
+}
+.card-body{
+  padding : 2.0rem;
+}
+.content{
+  float: left;
+}
+.intro{
+  width : 220px; height: 250px;
+  float:right;
+  margin-left : 100px;
+}
+.card{
+  margin-bottom : 100px;
+}

@@ -1,0 +1,15 @@
+.container{
+  margin-top : 100px;
+}
+ul{
+  list-style: none;
+}
+.card{
+  margin-bottom: 100px;
+}
+.title1{
+  font-size : 30px;
+}
+.title2{
+  font-size : 25px;
+}

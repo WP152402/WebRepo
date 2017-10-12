@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class SessionServlet
+ * Servlet implementation class SignUpServlet
  */
-@WebServlet("/session")
-public class SessionServlet extends HttpServlet {
+@WebServlet("/signup")
+public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SessionServlet() {
+    public SignUpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,31 @@ public class SessionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//세션에 사용자 정보가 없으면 로그인 하라는 login.jsp로 포워딩 하시오!
-		HttpSession session = request.getSession();
-		if(session.getAttribute("user")==null) {
-			response.sendRedirect("jsp/login.jsp"); //전달이 안대염
-		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/sessionInfo.jsp");
-			rd.forward(request, response);
-		}
+		// TODO Auto-generated method stub
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/signup.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String nickname = request.getParameter("nickname");
+		boolean result = false;
+		System.out.println(id + "\n" + pwd + "\n" + name + "\n" + nickname + "\n");
+		if(result) {
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
+			rd.forward(request, response);
+		}else {
+			request.setAttribute("msg", "error");
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/signup.jsp");
+			rd.forward(request, response);
+		}
+		
 	}
 
 }

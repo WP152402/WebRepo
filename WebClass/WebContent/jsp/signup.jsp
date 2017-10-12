@@ -8,24 +8,36 @@
 <title>SignUp</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <link rel="stylesheet" href="/WebClass/css/signin.css">
+		<%
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String nickname = request.getParameter("nickname");
+			if(id==null){
+				id="";
+				pwd="";
+				name="";
+				nickname="";
+		}
+		%>
 </head>
 <body>
 <div class="container">
 
-  <form id="signupForm" class="form-signin" action="" method="post">
+  <form id="signupForm" class="form-signin" action="/WebClass/signup" method="post">
     <h2 class="form-signin-heading">Please sign up</h2>
     
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" name="id" id="inputEmail" value="<%=id %>" class="form-control" placeholder="Email address" required autofocus>
     
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
-	
+    <input type="password" name="pwd" id="inputPassword" value="<%=pwd %>"class="form-control" placeholder="Password" required>
+   	
 	<label for="inputName" class="sr-only">Name</label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required>
+    <input type="text" name="name" id="inputName" value="<%=name %>"class="form-control" placeholder="Name" required>
 	
 	<label for="inputNickName" class="sr-only">Nick Name</label>
-    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required>
+    <input type="text" name="nickname" id="inputNickName" value="<%=nickname %>"class="form-control" placeholder="Nickname" required>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
   </form>
@@ -38,13 +50,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
-	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-	<%--
-		var myModal = $('#myModal');
-		myModal.find('.modal-title').text('Sign Up Error');
-		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
-		myModal.modal();
-	--%>
+<%
+if("error".equals(request.getAttribute("msg"))){ %>
+	var myModal = $('#myModal');
+	myModal.find('.modal-title').text('Login Error');
+	myModal.find('.modal-body').text('Invalid username or password');
+	myModal.modal();
+<% } %>
 </script>
 
 </body>

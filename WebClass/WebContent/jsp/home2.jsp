@@ -74,7 +74,7 @@
             
               var myModal = $('#myModal');
               myModal.modal();
-              myModal.find('.modal-body').text(data.id + 'ë ë¡ê·¸ì¸ëììµëë¤.');
+              myModal.find('.modal-body').text(data.id + '님 환영합니다');
             });
         }); 
       });
