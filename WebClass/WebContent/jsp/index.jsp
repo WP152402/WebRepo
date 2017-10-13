@@ -218,7 +218,7 @@ String id = request.getParameter("id")==null ? "" : request.getParameter("id");
       <form  action="/WebClass/bloglogin" method="post" id="loginform">
       <input type="text" name="id" placeholder="ID" required id="id" value="<%=id%>"><br>
       <br>
-      <input type="text" name="pw2" placeholder="PW" required id="pw"<% if("error".equals(request.getAttribute("msg"))){ %>autofocus<%}%>><br>
+      <input type="password" name="pw2" placeholder="PW" required id="pw"<% if("error".equals(request.getAttribute("msg"))){ %>autofocus<%}%>><br>
       <br>
       <input type="submit" value="로그인">
        </form>
