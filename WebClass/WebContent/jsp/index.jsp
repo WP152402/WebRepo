@@ -149,7 +149,6 @@ input[type = "submit"]{
 <body>
 <%
 String id = request.getParameter("id")==null ? "" : request.getParameter("id"); 
-String pwd = request.getParameter("pw2")==null ? "" : request.getParameter("pw2"); 
 %>
    <nav class="navbar navbar-expand-lg navbar-light" id="nav1">
   <a class="navbar-brand" href="#"><img src="../img/icon.png" alt="" width="50" height="50"></a>
@@ -219,7 +218,7 @@ String pwd = request.getParameter("pw2")==null ? "" : request.getParameter("pw2"
       <form  action="/WebClass/bloglogin" method="post" id="loginform">
       <input type="text" name="id" placeholder="ID" required id="id" value="<%=id%>"><br>
       <br>
-      <input type="text" name="pw2" placeholder="PW" required id="pw"value="<%=pwd%>"><br>
+      <input type="text" name="pw2" placeholder="PW" required id="pw"><br>
       <br>
       <input type="submit" value="로그인">
        </form>
